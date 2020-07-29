@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript simple Calculator </title>
+	<style>
+        /**
+Code By Web Dev Trick ( https://webdevtrick.com )
+For More Source Code Visit Our Blog ( https://webdevtrick.com )
+**/
+
+body, html {
+	background: #ECEDEF;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+	border-radius: 14px;
+	padding-bottom: 20px;
+	width: 320px;
+	
+}
+.display {
+	width: 100%;
+	height: 60px;
+	padding: 40px 0;
+	background: #ee5a5c;
+	border-top-left-radius: 14px;
+	border-top-right-radius: 14px;
+}
+.buttons {
+	padding: 20px 20px 0 20px;
+}
+.row {
+	width: 280px;
+	float: left;
+}
+input[type=button] {
+	width: 60px;
+	height: 60px;
+	float: left;
+	padding: 0;
+	margin: 5px;
+	box-sizing: border-box;
+	background: #ecedef;
+	border: none;
+	font-size: 30px;
+	line-height: 30px;
+	border-radius: 50%;
+	font-weight: 700;
+	color: #5E5858;
+	cursor: pointer;
+	
+}
+input[type=text] {
+	width: 270px;
+	height: 60px;
+	float: left;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+	background: none;
+	color: #ffffff;
+	text-align: right;
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 60px;
+	margin: 0 25px;
+	
+}
+.red {
+	background: #db3f41 !important;
+	color: #ffffff !important;
+	
+}
+    </style>
+</head>
+
+<body>
+	<script>
+	function calcNumbers(result){
+		document.getElementById('displayResult').value=document.getElementById('displayResult').value+result;
+		
+	}
+	</script>
+	<div class="container">
+		<form id="form">
+		<div class="display">
+			<input type="text" placeholder="0" id="displayResult" />
+		</div>
+			<div class="buttons">
+			  <div class="row">
+                <div class="row">
+                    <input type="button" id="root" value="&radic;" onClick="document.getElementById('displayResult').value = Math.sqrt(document.getElementById('displayResult').value)">
+                      <input type="button" id="ce" value="CE" onClick="document.getElementById('displayResult').value = ''">
+                      <input type="button" id="cancel" value="C" onClick="document.getElementById('displayResult').value = ''">
+                      <input type="button" id="backb" value="&larr;" onClick="document.getElementById('displayResult').value = document.getElementById('displayResult').value.slice(0,-1)">
+                    </div>
+
+				<input type="button" id="b7" value="7" onClick="calcNumbers(document.getElementById('b7').value)">
+				  <input type="button" id="b8" value="8" onClick="calcNumbers(document.getElementById('b8').value)">
+				  <input type="button" id="b9" value="9" onClick="calcNumbers(document.getElementById('b9').value)">
+				  <input type="button" id="addb" value="+" onClick="calcNumbers(document.getElementById('addb').value)">
+				</div>
+				
+				<div class="row">
+				<input type="button" id="b4" value="4" onClick="calcNumbers(document.getElementById('b4').value)">
+				  <input type="button" id="b5" value="5" onClick="calcNumbers(document.getElementById('b5').value)">
+				  <input type="button" id="b6" value="6" onClick="calcNumbers(document.getElementById('b6').value)">
+				  <input type="button" id="subb" value="-" onClick="calcNumbers(document.getElementById('subb').value)">
+				</div>
+				
+				<div class="row">
+				<input type="button" id="b1" value="1" onClick="calcNumbers(document.getElementById('b1').value)">
+				  <input type="button" id="b2" value="2" onClick="calcNumbers(document.getElementById('b2').value)">
+				  <input type="button" id="b3" value="3" onClick="calcNumbers(document.getElementById('b3').value)">
+				  <input type="button" id="mulb" value="*" onClick="calcNumbers(document.getElementById('mulb').value)">
+				</div>
+				
+				<div class="row">
+				<input type="button" id="b0" value="0" onClick="calcNumbers(document.getElementById('b0').value)">
+				  <input type="button" id="dotb" value="." onClick="calcNumbers(document.getElementById('dotb').value)">
+				  <input type="button" id="divb" value="/" onClick="calcNumbers(document.getElementById('divb').value)">
+				  <input type="button" class="red" value="=" onClick="displayResult.value=eval(displayResult.value)">
+				</div>
+			</div>
+		
+		</form>
+	</div>
+</body>
+	
+</html>
